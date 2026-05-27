@@ -33,6 +33,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        title = "Loja Virtual API"
+
         inicializarViewModel()
         configurarRecyclerView()
         observarEstados()

@@ -37,7 +37,7 @@ class ProdutoAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(produto: Produtos) {
-            binding.txtIDProduto.text = produto.id.toString()
+            binding.txtIDProduto.text ="ID: ${ produto.id.toString()}"
             binding.txtTituloProduto.text = produto.titulo
             binding.txtPrecoProduto.text = formatterPrice.formatToBRL(produto.preco)
            // binding.txtPrecoProduto.text = String.format(Locale.getDefault(), "R$ %.2f", produto.preco)
