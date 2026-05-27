@@ -1,2 +1,15 @@
-package com.example.consumoapi_dummyjson.presentation.ui 
+package com.example.consumoapi_dummyjson.presentation.ui
 
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.example.consumoapi_dummyjson.R
+
+class MainActivity : AppCompatActivity() {
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+    }
+}
