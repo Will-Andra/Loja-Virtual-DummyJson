@@ -9,21 +9,20 @@ import java.util.concurrent.TimeoutException
 
 
 inline fun <T> safeCallAPI(
-    bloco: () -> Response<T> // ⬅️ Agora o bloco retorna um Response do Retrofit
+    bloco: () -> Response<T>
 ): ResultadoState<T> {
     return try {
         val resposta = bloco()
 
-        // 1. Checa se o servidor respondeu com status de sucesso (200..299)
         if (resposta.isSuccessful) {
             val corpo = resposta.body()
             if (corpo != null) {
                 ResultadoState.Sucesso(corpo)
             } else {
-                ResultadoState.Erro(AppError.UnknownError) // Corpo veio vazio inexplicavelmente
+                ResultadoState.Erro(AppError.UnknownError)
             }
         } else {
-            // 2. Se o servidor respondeu com erro, mapeamos pelo código HTTP aqui
+
             ResultadoState.Erro(
                 when (resposta.code()) {
                     401 -> AppError.UnauthorizedError
@@ -35,10 +34,11 @@ inline fun <T> safeCallAPI(
             )
         }
     } catch (e: SocketTimeoutException) {
-        // No OkHttp/Retrofit, estouros de tempo geralmente lançam SocketTimeoutException
         ResultadoState.Erro(AppError.TimeoutError)
+
     } catch (e: IOException) {
         ResultadoState.Erro(AppError.NetworkError)
+
     } catch (e: Exception) {
         ResultadoState.Erro(AppError.UnknownError)
     }
