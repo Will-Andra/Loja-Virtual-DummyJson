@@ -1,5 +1,6 @@
 package com.example.consumoapi_dummyjson.data.remote
 
+import com.example.consumoapi_dummyjson.util.Constantes.BASE_URL
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -19,7 +20,7 @@ object RetrofitService {
 
     private val retrofit: Retrofit by lazy{
         Retrofit.Builder()
-            .baseUrl("https://dummyjson.com/")
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()
