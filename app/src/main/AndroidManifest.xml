@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ConsumoAPI_DummyJson">
         <activity
+            android:name=".presentation.ui.DetalhesProduto"
+            android:exported="false" />
+        <activity
             android:name=".presentation.ui.MainActivity"
             android:exported="true">
             <intent-filter>
