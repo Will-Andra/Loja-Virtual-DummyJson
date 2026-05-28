@@ -2,6 +2,9 @@
 
 **Objetivo: App desenvolvido com finalidade de Estudo.**
 
+<img width="404" height="443" alt="image" src="https://github.com/user-attachments/assets/04ce88a6-0d82-4baa-a702-52a505f509bb" />
+
+
 Aplicativo Android em **Kotlin** que consome dados de produtos da API DummyJason, apresentando uma listagem com 
 paginação dinâmica (*Infinite Scroll*) e uma tela de detalhes. 
 O projeto foi estruturado seguindo os padrões **MVVM** e princípios de **Clean Architecture**.
