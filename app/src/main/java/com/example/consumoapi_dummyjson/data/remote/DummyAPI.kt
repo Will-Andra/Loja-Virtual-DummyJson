@@ -13,7 +13,7 @@ interface DummyAPI {
 
     @GET("products")
     suspend fun recuperaProdutosComSkip(
-        @Query("skip") skipLista: Int,
-        @Query("limit") limitLista: Int
+        @Query("skip") skipLista: Int = 30,
+        @Query("limit") limitLista: Int? = null
     ): Response<ResultadoAPIProdutos>
 }

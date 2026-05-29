@@ -28,6 +28,7 @@ class ProdutoViewModel(
 
     private val listaAcumulada = mutableListOf<Produtos>()
 
+    //retirar depois
     init {
         recuperarProdutos() // Carrega a primeira página ao abrir
     }
@@ -37,11 +38,12 @@ class ProdutoViewModel(
         isQuerying = true
 
         viewModelScope.launch {
-            // Só ativa o loading se for a primeira página para não piscar a tela no scroll
+
             if (currentSkip == 0) _loading.value = true
             _erro.value = null
 
-            when (val result = produtosUseCase(limit, currentSkip)) {
+            when (val result = produtosUseCase(skipLista = currentSkip, limitLista = limit)) {
+
                 is ResultadoState.Sucesso -> {
                     val novosProdutos = result.data
 

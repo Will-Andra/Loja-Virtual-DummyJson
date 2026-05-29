@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity() {
         inicializarViewModel()
         configurarRecyclerView()
         observarEstados()
+
     }
 
     private fun inicializarViewModel() {
@@ -53,7 +54,8 @@ class MainActivity : AppCompatActivity() {
         binding.rvProdutos.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                if (!recyclerView.canScrollVertically(1)) {
+
+                if (dy > 0 && !recyclerView.canScrollVertically(1)) {
                     viewModel.recuperarProdutos()
                 }
             }
