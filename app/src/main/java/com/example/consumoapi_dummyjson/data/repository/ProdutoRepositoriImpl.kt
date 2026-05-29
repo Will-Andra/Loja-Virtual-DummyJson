@@ -22,7 +22,9 @@ class ProdutoRepositoryImpl(
 
 
         val resultadoAPI = safeCallAPI<ResultadoAPIProdutos> {
-            dummyAPI.recuperaProdutosComSkip(skipLista, limitLista)
+            dummyAPI.recuperaProdutosComSkip(
+                skipLista = skipLista,
+                limitLista = limitLista)
         }
 
         return when (resultadoAPI) {
